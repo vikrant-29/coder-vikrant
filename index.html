@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coder Vikrant | BSc CS Resources</title>
+  <style>
+    html
+    {
+        scroll-behavior: smooth;
+    }
+    :root {
+      --bg-dark: #121212;
+      --bg-darker: #0a0a0a;
+      --text-light: #e0e0e0;
+      --text-lighter: #ffffff;
+      --accent: #4a4a4a;
+      --highlight: #3a3a3a;
+      --border: #333333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 2rem;
+      background-color: var(--bg-darker);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    header img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    header h1 {
+      color: var(--text-lighter);
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 0.3rem 0;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: var(--text-lighter);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--text-lighter);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .section {
+      padding: 2.5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      margin-bottom: 1.5rem;
+      color: var(--text-lighter);
+      font-size: 1.8rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background-color: var(--accent);
+    }
+
+    .material-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .material-list li {
+      background-color: var(--bg-darker);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .material-list li:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      border-color: var(--accent);
+    }
+
+    .material-list a {
+      color: var(--text-light);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .material-list a::before {
+      content: '📄';
+      font-size: 1.2rem;
+    }
+
+    .material-list a:hover {
+      color: var(--text-lighter);
+    }
+
+    #searchBar {
+      padding: 0.8rem 1rem;
+      margin-bottom: 1.5rem;
+      width: 100%;
+      max-width: 500px;
+      background-color: var(--bg-darker);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-light);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    #searchBar:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(74, 74, 74, 0.2);
+    }
+
+    form {
+      max-width: 600px;
+      margin-top: 1.5rem;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-lighter);
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      margin-bottom: 1rem;
+      background-color: var(--bg-darker);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-light);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(74, 74, 74, 0.2);
+    }
+
+    button {
+      background-color: var(--accent);
+      color: var(--text-lighter);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--highlight);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--bg-darker);
+      color: var(--text-light);
+      border-top: 1px solid var(--border);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .section {
+        padding: 1.5rem 1rem;
+      }
+
+      .material-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-container h1 {
+        font-size: 1.2rem;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+      }
+
+      .section h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="img/logo.png" alt="Logo">
+      <h1>Coder Vikrant</h1>
+    </div>
+    <nav>
+      <a href="#notes">Notes</a>
+      <a href="#pyqs">Question papers</a>
+      <a href="#lab">Lab Records</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="section" id="home">
+    <h2>Welcome to Coder Vikrant</h2>
+    <p>As a BSc Computer Science graduate, I know how difficult it can be to find organized and reliable academic material. I created Coder Vikrant to share my notes, past papers, and lab records with future students — all in one place, free to download.</p>
+  </div>
+
+  <div class="section" id="notes">
+    <h2>Notes</h2>
+    <input type="text" id="searchBar" onkeyup="filterNotes()" placeholder="Search notes by subject, semester...">
+    <ul class="material-list" id="notesList">
+      <li><a href="notes/2DTransformations.pdf" download>2D Transformations</a></li>  
+      <li><a href="notes/2D Trans-SolvedProblems1.pdf" download>2D Trans-SolvedProblems 1</a></li>
+      <li><a href="notes/2DTrans-SolvedProblems3.pdf" download>2D Trans-SolvedProblems 3</a></li>
+      <li><a href="notes/Matrices-Eigen-SystemOfEqns.pdf" download>Matrices-Eigen-SystemOfEqns</a></li>
+      <li><a href="notes/Matrices_EigenValuesVectorsUsingNumpy.pdf" download>Matrices_EigenValuesVectorsUsingNumpy</a></li>
+      <li><a href="notes/Loops in Python.pdf" download>Loops in Python</a></li>
+    </ul>
+  </div>
+
+  <div class="section" id="pyqs">
+    <h2>Subject-wise Question Papers</h2>
+  <ul class="material-list">
+    <li><a href="#11" downloa>Not uploded yet</a></li>
+    <li><a href="#11" downloa>Not uploded yet</a></li>
+  </ul>
+  </div>
+
+  <div class="section" id="lab">
+    <h2>Lab Records</h2>
+    <ul class="material-list">
+      <li><a href="#11" downloa>Not uploded yet</a></li>
+      <li><a href="#11" downloa>Not uploded yet</a></li>
+    </ul>
+  </div>
+
+  <div class="section" id="contact">
+    <h2>Contact & Feedback</h2>
+    <p>Have suggestions or found an error? Let me know!</p>
+    <form id="contactForm">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" required></textarea>
+      
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>© 2025 Coder Vikrant | All study materials are shared for educational purposes only.</p>
+  </footer>
+
+  <script>
+    function filterNotes() {
+      const input = document.getElementById('searchBar');
+      const filter = input.value.toLowerCase();
+      const list = document.getElementById('notesList');
+      const items = list.getElementsByTagName('li');
+      
+      for (let i = 0; i < items.length; i++) {
+        const text = items[i].textContent || items[i].innerText;
+        items[i].style.display = text.toLowerCase().includes(filter) ? "" : "none";
+      }
+    }
+
+    // Simple form handling (would need backend in real implementation)
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your message! I will get back to you soon.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
