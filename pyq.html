@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coder Vikrant | BSc CS Resources - Notes, PYQs & Lab Records</title>
+    <meta name="description"
+        content="Free BSc Computer Science resources - Download notes, previous year question papers, and lab records. Created by Vikrant, a CS graduate to help students.">
+    <meta name="keywords"
+        content="BSc Computer Science, CS notes, PYQs, lab records, programming resources, free study materials">
+    <meta name="author" content="Vikrant">
+    <meta property="og:title" content="Coder Vikrant | BSc CS Resources">
+    <meta property="og:description" content="Free BSc Computer Science study materials shared by a graduate">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="img/logo.png" alt="Coder Vikrant Logo" loading="lazy" width="40" height="40">
+            <h1>Coder Vikrant</h1>
+        </div>
+        <nav aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="notes.html">Notes</a>
+            <a href="#pyqs">PYQs</a>
+            <a href="lab.html">Lab</a>
+            <a href="contact.html">Contact</a>
+            <button class="theme-toggle" aria-label="Toggle dark/light mode" id="themeToggle">
+                <span class="dark-icon" aria-hidden="true">🌙</span>
+                <span class="light-icon" aria-hidden="true">☀️</span>
+                <span class="sr-only">Toggle dark/light mode</span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section" id="pyqs">
+            <h2>Subject-wise Question Papers <span class="toggle-icon">▼</span></h2>
+            <div class="section-content">
+                <input type="text" id="searchBar" onkeyup="filterQuestion()"
+                    placeholder="Search notes by subject, papers..." aria-label="Search note">
+                <ul class="material-list" id="QuestionList">
+                    <li><a href="#11" download>Not uploaded yet</a></li>
+                    <li><a href="#11" download>Not uploaded yet</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <p>© 2025 Coder Vikrant | All study materials are shared for educational purposes only.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
