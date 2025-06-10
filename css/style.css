@@ -348,6 +348,59 @@ img[loading="lazy"].loaded {
     opacity: 1;
 }
 
+/* Icon Styles */
+.fas, .far, .fab {
+  margin-right: 0.5rem;
+  transition: all var(--transition-time) ease;
+}
+
+/* Social icons in footer */
+.social-icons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-icons a {
+  color: var(--text-light);
+  font-size: 1.5rem;
+  transition: all var(--transition-time) ease;
+}
+
+.social-icons a:hover {
+  color: var(--text-lighter);
+  transform: translateY(-3px);
+}
+
+/* Section icons */
+.section h2 i {
+  margin-right: 0.8rem;
+  color: var(--accent);
+}
+
+/* Material list icons */
+.material-list a::before {
+  content: '\f15c'; /* Font Awesome file icon code */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+/* Different icons for different file types */
+.material-list a[href$=".pdf"]::before {
+  content: '\f1c1'; /* PDF icon */
+}
+.material-list a[href$=".doc"]::before,
+.material-list a[href$=".docx"]::before {
+  content: '\f1c2'; /* Word icon */
+}
+.material-list a[href$=".zip"]::before,
+.material-list a[href$=".rar"]::before {
+  content: '\f1c6'; /* Archive icon */
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     header {

@@ -1,17 +1,32 @@
-
 // Theme toggle functionality
 const themeToggle = document.getElementById('themeToggle');
 const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-const currentTheme = localStorage.getItem('theme') || (prefersDarkScheme.matches ? 'dark' : 'light');
+const savedTheme = localStorage.getItem('theme');
+const initialTheme = savedTheme || (prefersDarkScheme.matches ? 'dark' : 'light');
 
-document.documentElement.setAttribute('data-theme', currentTheme);
+// Set initial theme
+document.documentElement.setAttribute('data-theme', initialTheme);
+updateToggleButton(initialTheme);
 
+// Toggle theme on button click
 themeToggle.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    const current = document.documentElement.getAttribute('data-theme');
+    const newTheme = current === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
+    updateToggleButton(newTheme);
 });
+
+// Function to update button based on theme
+function updateToggleButton(theme) {
+    if (theme === 'dark') {
+        themeToggle.textContent = '🌙 Dark Mode'; // or change class/icon
+    } else {
+        themeToggle.textContent = '☀️ Light Mode';
+    }
+}
+
+
 
 // Collapsible sections
 document.querySelectorAll('.section h2').forEach(header => {

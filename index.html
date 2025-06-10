@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coder Vikrant | BSc CS Resources - Notes, PYQs & Lab Records</title>
@@ -15,6 +16,173 @@
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/toggle.css"> <!-- NEW STYLESHEET FOR THE BB8 TOGGLE -->
+  <style>
+    /* Updated Flip Card Styles */
+    .flip-card {
+      background-color: transparent;
+      width: 280px;
+      /* Increased width for better content fit */
+      height: 350px;
+      /* Increased height for better content fit */
+      perspective: 1000px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 20px auto;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.2);
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 10px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .flip-card-front {
+      background: linear-gradient(135deg, var(--highlight) 0%, var(--bg-darker) 100%);
+      color: var(--text-lighter);
+      border: 1px solid var(--accent);
+    }
+
+    .flip-card-back {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--bg-dark) 100%);
+      color: var(--text-lighter);
+      transform: rotateY(180deg);
+      border: 1px solid var(--highlight);
+      justify-content: flex-start;
+    }
+
+    .profile-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--text-lighter);
+      margin-bottom: 15px;
+    }
+
+    .title {
+      font-size: 1.5em;
+      font-weight: 600;
+      text-align: center;
+      margin: 0 0 10px 0;
+      color: var(--text-lighter);
+    }
+
+    .flip-card-front p:last-child {
+      color: var(--text-light);
+      font-size: 0.9em;
+    }
+
+    .info {
+      text-align: left;
+      width: 100%;
+    }
+
+    .info p {
+      margin: 10px 0;
+      font-size: 0.9em;
+      display: flex;
+      align-items: center;
+    }
+
+    .info i {
+      margin-right: 10px;
+      width: 20px;
+      text-align: center;
+    }
+
+    .social-links {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .social-links a {
+      color: var(--text-lighter);
+      font-size: 1.2em;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--highlight);
+      transform: translateY(-3px);
+    }
+
+    .typing-container {
+      margin: 20px auto;
+    }
+
+    #typing-text {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 3px;
+      height: 2.5rem;
+      background: #e74c3c;
+      animation: blink 0.7s infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    /* Different Font Classes */
+    .font1 {
+      font-family: 'Pacifico', cursive;
+      color: #e630b5;
+    }
+
+    .font2 {
+      font-family: 'Roboto Mono', monospace;
+      color: #3498db;
+    }
+
+    .font3 {
+      font-family: 'Comic Neue', cursive;
+      color: #2ecc71;
+    }
+
+    .font4 {
+      font-family: 'Montserrat', sans-serif;
+      color: #9b59b6;
+    }
+  </style>
 </head>
 
 <body>
@@ -24,11 +192,11 @@
       <h1>Coder Vikrant</h1>
     </div>
     <nav aria-label="Main navigation">
-      <a href="#home">Home</a>
-      <a href="notes.html">Notes</a>
-      <a href="pyq.html">PYQs</a>
-      <a href="lab.html">Lab</a>
-      <a href="contact.html">Contact</a>
+      <a href="#home"><i class="fas fa-home"></i> Home</a>
+      <a href="notes.html"><i class="fas fa-book"></i> Notes</a>
+      <a href="pyq.html"><i class="fas fa-file-alt"></i> PYQs</a>
+      <a href="lab.html"><i class="fas fa-flask"></i> Lab</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
 
       <label class="theme-switch">
         <input type="checkbox" class="theme-switch__checkbox" id="themeToggle">
@@ -54,22 +222,105 @@
     </nav>
   </header>
 
+  <section>
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="img/photo2.jpg" alt="Your Name" class="profile-photo">
+          <p class="title">Vikrant Vijay Patil</p>
+          <p>Job Title/Role</p>
+        </div>
+        <div class="flip-card-back">
+          <p class="title">About Me</p>
+          <div class="info">
+            <p><i class="fas fa-envelope"></i>vikrant1104you@gmail.com</p>
+            <p><i class="fas fa-book"></i>BSc. Computer Science</p>
+            <p><i class="fas fa-map-marker-alt"></i>Pune</p>
+             <p>follow me on instagram for more coding tips👇</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/vikrant-patil-45267031b/"><i class="fab fa-linkedin"></i></a>
+              <a href="http://github.com/vikrant-29"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <main>
     <section class="section" id="home">
-      <h2>Welcome to Coder Vikrant</h2>
+      <h2>Welcome to Coder Vikrant <i class="fas fa-laptop-code"></i></h2>
       <div class="section-content">
-        <p>As a BSc Computer Science graduate, I know how difficult it can be to find organized and reliable academic
-          material. I created Coder Vikrant to share my notes, past papers, and lab records with future students — all
-          in one place, free to download.</p>
+        <p>
+        <div class="typing-container">
+          <p><i class="fas fa-graduation-cap"></i> Hi there!</p>
+          <div>
+            <span id="typing-text"></span>
+            <span class="cursor"></span>
+          </div>
+        </div>
+
+        <p>As a <strong>BSc Computer Science graduate</strong> 🎓💻, I know how tough it can be to find
+          <strong>organized, reliable academic material</strong> 📚. That’s why I created <strong>Coder
+            Vikrant</strong>—to share <strong>my notes, past papers, and lab records</strong> 📝 with future
+          students—<strong>all in one place, absolutely FREE to download!</strong> 🚀
+        </p>
+
+        <p>No more struggling—just <strong>straightforward, helpful resources</strong> to make your CS journey smoother!
+          🚀💡</p>
+
+        <p>Happy learning! 😊✨</p>
       </div>
     </section>
   </main>
 
   <footer role="contentinfo">
-    <p>© 2025 Coder Vikrant | All study materials are shared for educational purposes only.</p>
+    <p><i class="far fa-copyright"></i> 2025 Coder Vikrant | All study materials are shared for educational purposes
+      only.</p>
+    <div class="social-icons">
+      <a href="http://github.com/vikrant-29" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/vikrant-patil-45267031b/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-instagram"></i></a>
+    </div>
   </footer>
 
   <script src="js/script.js"></script>
+
+  <script>
+    // JavaScript for Typing Effect + Font Cycling
+    const text = "I'm Vikrant Patil!";
+    const fonts = ["font1", "font2", "font3", "font4"];
+    let fontIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 150;
+
+    function typeWriter() {
+      const currentFont = fonts[fontIndex % fonts.length];
+      const displayText = text.substring(0, charIndex);
+
+      document.getElementById("typing-text").innerHTML =
+        `<span class="${currentFont}">${displayText}</span>`;
+
+      if (!isDeleting && charIndex < text.length) {
+        charIndex++;
+        setTimeout(typeWriter, typingSpeed);
+      }
+      else if (isDeleting && charIndex > 0) {
+        charIndex--;
+        setTimeout(typeWriter, typingSpeed / 2);
+      }
+      else {
+        isDeleting = !isDeleting;
+        if (!isDeleting) fontIndex++;
+        setTimeout(typeWriter, typingSpeed);
+      }
+    }
+
+    // Start animation when page loads
+    window.onload = () => setTimeout(typeWriter, 1000);
+  </script>
+
 </body>
 
 </html>
