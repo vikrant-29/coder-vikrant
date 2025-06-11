@@ -87,40 +87,90 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Search functionality
 function filterNotes() {
     const input = document.getElementById('searchBar');
-    const filter = input.value.toLowerCase();
+    const searchTerms = input.value.trim().toLowerCase().split(/\s+/);
     const list = document.getElementById('notesList');
     const items = list.getElementsByTagName('li');
+    const noResultsMsg = document.getElementById('noResultsMsg');
+
+    let hasMatches = false;
+
+    if (searchTerms[0] === '') {
+        for (let i = 0; i < items.length; i++) {
+            items[i].style.display = "";
+        }
+        if (noResultsMsg) noResultsMsg.style.display = 'none';
+        return;
+    }
 
     for (let i = 0; i < items.length; i++) {
-        const text = items[i].textContent || items[i].innerText;
-        items[i].style.display = text.toLowerCase().includes(filter) ? "" : "none";
+        const noteText = (items[i].textContent || items[i].innerText).toLowerCase();
+        const isMatch = searchTerms.every(term => noteText.includes(term));
+        items[i].style.display = isMatch ? "" : "none";
+        if (isMatch) hasMatches = true;
+    }
+
+    if (noResultsMsg) {
+        noResultsMsg.style.display = hasMatches ? 'none' : 'block';
     }
 }
 
 function filterlab() {
     const input = document.getElementById('searchBar');
-    const filter = input.value.toLowerCase();
+    const searchTerms = input.value.trim().toLowerCase().split(/\s+/);
     const list = document.getElementById('labList');
     const items = list.getElementsByTagName('li');
+    const noResultsMsg = document.getElementById('noResultsMsg');
+
+    let hasMatches = false;
+
+    if (searchTerms[0] === '') {
+        for (let i = 0; i < items.length; i++) {
+            items[i].style.display = "";
+        }
+        if (noResultsMsg) noResultsMsg.style.display = 'none';
+        return;
+    }
 
     for (let i = 0; i < items.length; i++) {
-        const text = items[i].textContent || items[i].innerText;
-        items[i].style.display = text.toLowerCase().includes(filter) ? "" : "none";
+        const labText = (items[i].textContent || items[i].innerText).toLowerCase();
+        const isMatch = searchTerms.every(term => labText.includes(term));
+        items[i].style.display = isMatch ? "" : "none";
+        if (isMatch) hasMatches = true;
+    }
+
+    if (noResultsMsg) {
+        noResultsMsg.style.display = hasMatches ? 'none' : 'block';
     }
 }
 
 function filterQuestion() {
     const input = document.getElementById('searchBar');
-    const filter = input.value.toLowerCase();
+    const searchTerms = input.value.trim().toLowerCase().split(/\s+/);
     const list = document.getElementById('QuestionList');
     const items = list.getElementsByTagName('li');
+    const noResultsMsg = document.getElementById('noResultsMsg');
+
+    let hasMatches = false;
+
+    if (searchTerms[0] === '') {
+        for (let i = 0; i < items.length; i++) {
+            items[i].style.display = "";
+        }
+        if (noResultsMsg) noResultsMsg.style.display = 'none';
+        return;
+    }
 
     for (let i = 0; i < items.length; i++) {
-        const text = items[i].textContent || items[i].innerText;
-        items[i].style.display = text.toLowerCase().includes(filter) ? "" : "none";
+        const questionText = (items[i].textContent || items[i].innerText).toLowerCase();
+        const isMatch = searchTerms.every(term => questionText.includes(term));
+        items[i].style.display = isMatch ? "" : "none";
+        if (isMatch) hasMatches = true;
+    }
+
+    if (noResultsMsg) {
+        noResultsMsg.style.display = hasMatches ? 'none' : 'block';
     }
 }
 
