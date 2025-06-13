@@ -163,6 +163,27 @@
       }
     }
 
+    .blinking-note {
+      animation: blink 1s infinite;
+      font-weight: bold;
+      color: #ff0000;
+      /* Red color for emphasis */
+    }
+
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
     /* Different Font Classes */
     .font1 {
       font-family: 'Pacifico', cursive;
@@ -272,6 +293,8 @@
 
         <p>Happy learning! 😊✨</p>
       </div>
+      <br>
+      <div class="blinking-note">*NOTE :- To download any file, just click on its name.</div>
     </section>
   </main>
 
