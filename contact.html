@@ -63,19 +63,11 @@
             <h2>Contact & Feedback <span class="toggle-icon">▼</span></h2>
             <div class="section-content">
                 <p>Have suggestions or found an error? Let me know!</p>
-                <form id="contactForm" action="https://formsubmit.co/vikrant1104you@gmail.com" method="POST"
-                    aria-label="Contact form">
-                    <!-- Honeypot for spam protection (hidden) -->
-                    <input type="text" name="_honey" style="display:none">
+                <form id="contactForm" name="contact" method="POST" netlify aria-label="Contact form">
+                    <!-- Hidden Netlify form-name field (required) -->
+                    <input type="hidden" name="form-name" value="contact">
 
-                    <!-- Redirect after submission (optional) -->
-                    <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
-
-                    <!-- Auto-reply to sender (optional) -->
-                    <input type="hidden" name="_autoresponse"
-                        value="Thanks for your message! I'll get back to you soon.">
-
-                    <!-- Form fields -->
+                    <!-- Your form fields -->
                     <label for="name"><i class="fas fa-user"></i> Your Name</label>
                     <input type="text" id="name" name="name" required aria-required="true">
 
