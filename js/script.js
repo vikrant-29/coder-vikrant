@@ -197,7 +197,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     })
     .then(response => {
         if (response.ok) {
-            alert('Thank you! Your message has been sent.');
+            window.location.href = '/thank-you.html';
             form.reset();
         } else {
             throw new Error('Network response was not ok');
