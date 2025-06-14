@@ -184,9 +184,13 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     
-    fetch(form.action, {
+    // Create FormData and ensure form-name is included
+    const formData = new FormData(form);
+    formData.append('form-name', 'contact'); // Critical for Netlify
+    
+    fetch('/', {  // Changed from form.action to root path
         method: 'POST',
-        body: new FormData(form),
+        body: formData,
         headers: {
             'Accept': 'application/json'
         }
